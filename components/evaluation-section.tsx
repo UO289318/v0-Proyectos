@@ -13,15 +13,15 @@ const priceTable = [
 const conditionModifiers = [
   { label: "Como nuevo", modifier: "x1.0", desc: "Sin senales de uso visibles" },
   { label: "Bueno", modifier: "x0.8", desc: "Ligeras senales de uso" },
-  { label: "Aceptable", modifier: "x0.6", desc: "Uso evidente pero funcional" },
+  { label: "Aceptable", modifier: "x0.5", desc: "Uso evidente pero funcional" },
   { label: "Desgastado", modifier: "x0.4", desc: "Requiere reparaciones menores" },
 ]
 
 const ageModifiers = [
-  { label: "< 1 ano", modifier: "x1.0" },
-  { label: "1-3 anos", modifier: "x0.9" },
-  { label: "3-5 anos", modifier: "x0.7" },
-  { label: "5+ anos", modifier: "x0.5" },
+  { label: "< 1 año", modifier: "x1.2" },
+  { label: "1-2 años", modifier: "x1.0" },
+  { label: "+3 años", modifier: "x0.7" },
+
 ]
 
 export function EvaluationSection() {

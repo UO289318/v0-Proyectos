@@ -4,15 +4,23 @@ import { useState } from "react"
 import Image from "next/image"
 import { User, Bell, Menu, X } from "lucide-react"
 
+const navLinks = [
+  { href: "#", label: "Inicio", active: true },
+  { href: "#como-funciona", label: "Como funciona", active: false },
+  { href: "#litros", label: "Litros Ahorrados", active: false },
+  { href: "#insignias", label: "Insignias", active: false },
+  { href: "#intercambiar", label: "Intercambiar", active: false },
+]
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card/90 backdrop-blur-lg">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Image
           src="/logos/Indigo_Logo_Horizontal.svg"
-          alt="Indigo - Circular Fashion"
+          alt="Indigo - Moda Circular"
           width={140}
           height={48}
           className="h-9 w-auto"
@@ -20,19 +28,18 @@ export function Header() {
         />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Navegacion principal">
-          <a href="#" className="text-sm font-medium text-foreground transition-colors hover:text-[#4A7C59]">
-            Inicio
-          </a>
-          <a href="#como-funciona" className="text-sm font-medium text-muted-foreground transition-colors hover:text-[#4A7C59]">
-            Como funciona
-          </a>
-          <a href="#litros" className="text-sm font-medium text-muted-foreground transition-colors hover:text-[#4A7C59]">
-            Litros Ahorrados
-          </a>
-          <a href="#intercambiar" className="text-sm font-medium text-muted-foreground transition-colors hover:text-[#4A7C59]">
-            Intercambiar
-          </a>
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Navegacion principal">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`text-sm transition-colors hover:text-[#4A7C59] ${
+                link.active ? "font-semibold text-foreground" : "font-medium text-muted-foreground"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -50,9 +57,8 @@ export function Header() {
             <User className="h-4 w-4" />
           </button>
 
-          {/* Mobile menu toggle */}
           <button
-            className="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary md:hidden"
+            className="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
           >
@@ -61,22 +67,24 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile nav */}
       {mobileMenuOpen && (
-        <nav className="animate-in slide-in-from-top-2 duration-200 border-t border-border bg-card px-4 py-3 md:hidden" aria-label="Menu movil">
+        <nav
+          className="animate-in slide-in-from-top-2 duration-200 border-t border-border bg-card px-4 py-3 lg:hidden"
+          aria-label="Menu movil"
+        >
           <div className="flex flex-col gap-1">
-            <a href="#" className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary">
-              Inicio
-            </a>
-            <a href="#como-funciona" className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary">
-              Como funciona
-            </a>
-            <a href="#litros" className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary">
-              Litros Ahorrados
-            </a>
-            <a href="#intercambiar" className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary">
-              Intercambiar
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-secondary ${
+                  link.active ? "font-semibold text-foreground" : "font-medium text-muted-foreground"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </nav>
       )}

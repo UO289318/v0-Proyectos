@@ -31,6 +31,9 @@ export function Footer() {
             <a href="#" className="text-white/60 transition-colors hover:text-white">
               Rankings
             </a>
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
+              Insignias
+            </a>
           </div>
           <div className="flex flex-col gap-2.5">
             <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30">

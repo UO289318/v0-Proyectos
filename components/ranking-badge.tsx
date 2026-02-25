@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
+import { Shield, ChevronUp } from "lucide-react"
 
 interface RankingBadgeProps {
   points: number
@@ -8,71 +9,42 @@ interface RankingBadgeProps {
 
 const ranks = [
   {
-    name: "Invitado",
-    label: "Usuario Invitado",
-    min: 0,
-    max: 499,
-    color: "#9E9E9E",
-    bgColor: "rgba(158,158,158,0.10)",
-    borderColor: "rgba(158,158,158,0.25)",
-  },
-  {
     name: "Bronce",
-    label: "Bronce",
-    min: 500,
-    max: 1499,
+    min: 1,
+    max: 10000,
     color: "#A0522D",
-    bgColor: "rgba(160,82,45,0.10)",
-    borderColor: "rgba(160,82,45,0.25)",
+    bg: "rgba(160,82,45,0.08)",
+    border: "rgba(160,82,45,0.20)",
+    gradient: "linear-gradient(135deg, #A0522D 0%, #CD853F 100%)",
   },
   {
     name: "Plata",
-    label: "Plata",
-    min: 1500,
-    max: 2999,
-    color: "#8D99A6",
-    bgColor: "rgba(141,153,166,0.10)",
-    borderColor: "rgba(141,153,166,0.25)",
+    min: 10001,
+    max: 25000,
+    color: "#6B7D8D",
+    bg: "rgba(107,125,141,0.08)",
+    border: "rgba(107,125,141,0.20)",
+    gradient: "linear-gradient(135deg, #6B7D8D 0%, #A8B8C8 100%)",
   },
   {
     name: "Oro",
-    label: "Oro",
-    min: 3000,
-    max: 4999,
-    color: "#C8A951",
-    bgColor: "rgba(200,169,81,0.12)",
-    borderColor: "rgba(200,169,81,0.30)",
+    min: 25001,
+    max: 150000,
+    color: "#B8941F",
+    bg: "rgba(184,148,31,0.08)",
+    border: "rgba(184,148,31,0.20)",
+    gradient: "linear-gradient(135deg, #B8941F 0%, #D4B846 100%)",
   },
   {
-    name: "Platinum",
-    label: "Platinum",
-    min: 5000,
+    name: "Platino",
+    min: 150001,
     max: Infinity,
-    color: "#5C7C8A",
-    bgColor: "rgba(92,124,138,0.10)",
-    borderColor: "rgba(92,124,138,0.25)",
+    color: "#4A6670",
+    bg: "rgba(74,102,112,0.08)",
+    border: "rgba(74,102,112,0.20)",
+    gradient: "linear-gradient(135deg, #4A6670 0%, #7BA0AD 100%)",
   },
 ]
-
-function ShieldIcon({ color, filled }: { color: string; filled: boolean }) {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill={filled ? color : "none"}
-      stroke={color}
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      {filled && (
-        <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none" />
-      )}
-    </svg>
-  )
-}
 
 export function RankingBadge({ points }: RankingBadgeProps) {
   const currentRank = useMemo(
@@ -82,11 +54,12 @@ export function RankingBadge({ points }: RankingBadgeProps) {
 
   const currentIdx = ranks.indexOf(currentRank)
 
-  const nextRank = useMemo(() => {
-    return currentIdx < ranks.length - 1 ? ranks[currentIdx + 1] : null
-  }, [currentIdx])
+  const nextRank = useMemo(
+    () => (currentIdx < ranks.length - 1 ? ranks[currentIdx + 1] : null),
+    [currentIdx]
+  )
 
-  const progressToNext = useMemo(() => {
+  const progressPct = useMemo(() => {
     if (!nextRank) return 100
     const rangeSize = nextRank.min - currentRank.min
     const progress = points - currentRank.min
@@ -95,41 +68,44 @@ export function RankingBadge({ points }: RankingBadgeProps) {
 
   return (
     <div className="w-full">
-      {/* Current rank badge + progress */}
+      {/* Active rank + progress */}
       <div className="flex items-center gap-3">
+        {/* Badge */}
         <div
-          className="flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold"
+          className="flex items-center gap-2 rounded-full px-4 py-2"
           style={{
-            backgroundColor: currentRank.bgColor,
-            border: `1.5px solid ${currentRank.borderColor}`,
-            color: currentRank.color,
+            background: currentRank.bg,
+            border: `1.5px solid ${currentRank.border}`,
           }}
         >
-          <ShieldIcon color={currentRank.color} filled={currentIdx >= 2} />
-          <span>{currentRank.label}</span>
+          <Shield className="h-4 w-4" style={{ color: currentRank.color }} />
+          <span className="text-sm font-bold" style={{ color: currentRank.color }}>
+            {currentRank.name}
+          </span>
         </div>
 
+        {/* Progress to next */}
         {nextRank && (
-          <div className="flex-1">
-            <div className="mb-1 flex items-center justify-between text-[11px]">
-              <span className="text-muted-foreground">
-                Siguiente: <span className="font-bold" style={{ color: nextRank.color }}>{nextRank.name}</span>
+          <div className="flex-1 min-w-0">
+            <div className="mb-1 flex items-center justify-between">
+              <span className="text-[11px] text-muted-foreground">
+                Siguiente:{" "}
+                <span className="font-bold" style={{ color: nextRank.color }}>
+                  {nextRank.name}
+                </span>
               </span>
-              <span className="font-bold" style={{ color: currentRank.color }}>
-                {progressToNext}%
+              <span className="text-[11px] font-bold" style={{ color: currentRank.color }}>
+                {progressPct}%
               </span>
             </div>
-            <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
               <div
                 className="h-full rounded-full transition-all duration-1000 ease-out"
-                style={{
-                  width: `${progressToNext}%`,
-                  backgroundColor: nextRank.color,
-                }}
+                style={{ width: `${progressPct}%`, background: currentRank.gradient }}
               />
             </div>
             <p className="mt-1 text-[10px] text-muted-foreground">
-              Te faltan{" "}
+              Faltan{" "}
               <span className="font-bold text-foreground">
                 {(nextRank.min - points).toLocaleString("es-ES")}
               </span>{" "}
@@ -137,37 +113,57 @@ export function RankingBadge({ points }: RankingBadgeProps) {
             </p>
           </div>
         )}
+
+        {!nextRank && (
+          <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: currentRank.color }}>
+            <ChevronUp className="h-3.5 w-3.5" />
+            Rango maximo alcanzado
+          </div>
+        )}
       </div>
 
-      {/* All ranks overview */}
-      <div className="mt-5 flex items-stretch gap-1">
+      {/* Tier overview */}
+      <div className="mt-4 flex gap-0.5">
         {ranks.map((rank, idx) => {
-          const isActive = rank.name === currentRank.name
+          const isActive = idx === currentIdx
           const isPast = idx < currentIdx
           return (
             <div
               key={rank.name}
-              className="flex flex-1 flex-col items-center gap-1 rounded-lg px-1 py-2.5 transition-all duration-300"
+              className="relative flex flex-1 flex-col items-center gap-1 rounded-lg py-2.5 transition-all duration-300"
               style={{
-                backgroundColor: isActive ? rank.bgColor : "transparent",
-                opacity: isPast || isActive ? 1 : 0.35,
+                backgroundColor: isActive ? rank.bg : "transparent",
+                opacity: isPast || isActive ? 1 : 0.3,
               }}
             >
-              <ShieldIcon
-                color={isPast || isActive ? rank.color : "#C0C0C0"}
-                filled={isPast}
-              />
+              <div
+                className="flex h-7 w-7 items-center justify-center rounded-full"
+                style={{
+                  background: isPast || isActive ? rank.gradient : "#E2DDD4",
+                }}
+              >
+                <Shield
+                  className="h-3.5 w-3.5"
+                  style={{ color: isPast || isActive ? "white" : "#BDBDBD" }}
+                />
+              </div>
               <span
-                className="text-center text-[9px] font-bold uppercase leading-tight tracking-wider"
-                style={{ color: isPast || isActive ? rank.color : "#C0C0C0" }}
+                className="text-[9px] font-bold uppercase tracking-wider"
+                style={{ color: isPast || isActive ? rank.color : "#BDBDBD" }}
               >
                 {rank.name}
               </span>
-              <span className="text-center text-[8px] leading-tight text-muted-foreground">
+              <span className="text-[8px] text-muted-foreground">
                 {rank.max === Infinity
-                  ? `${rank.min.toLocaleString("es-ES")}+`
+                  ? `${(rank.min - 1).toLocaleString("es-ES")}+`
                   : `${rank.min.toLocaleString("es-ES")}`}
               </span>
+              {isActive && (
+                <div
+                  className="absolute -top-0.5 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full"
+                  style={{ background: rank.gradient }}
+                />
+              )}
             </div>
           )
         })}

@@ -1,0 +1,40 @@
+<svg width="250" height="120" viewBox="-20 -10 250 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400&amp;family=Lato:wght@300;700&amp;display=swap');
+
+      .title {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+
+  <rect x="-20" y="-10" width="250" height="120" rx="12" fill="#FFFF" />
+
+  <g transform="translate(-10, 0)">
+    <g id="icon-horizontal">
+      <path d="M50 90C50 90 55 60 45 15" stroke="#4A7c59" stroke-width="2" stroke-linecap="round" />
+      <path d="M51 75 C55 75 65 72 68 68 C65 68 55 65 52 70" fill="#1B3B6F" />
+      <path d="M49 72 C45 72 35 69 32 65 C35 65 45 62 48 67" fill="#1B3B6F" />
+      <path d="M52 55 C56 55 66 52 69 48 C66 48 56 45 53 50" fill="#1B3B6F" />
+      <path d="M48 52 C44 52 34 49 31 45 C34 45 44 42 47 47" fill="#1B3B6F" />
+      <path d="M51 35 C55 35 65 32 68 28 C65 28 55 25 52 30" fill="#1B3B6F" />
+      <path d="M47 32 C43 32 33 29 30 25 C33 25 43 22 46 27" fill="#1B3B6F" />
+    </g>
+
+
+    <g transform="translate(85, 10)">
+      <text x="0" y="48" fill="#1B3B6F" font-size="38" class="title">indigo</text>
+      <text x="2" y="70" fill="#8D6E63" font-size="8" class="subtitle">Circular Fashion</text>
+    </g>
+  </g>
+</svg>

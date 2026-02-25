@@ -8,45 +8,71 @@ interface RankingBadgeProps {
 
 const ranks = [
   {
-    name: "Silver",
+    name: "Invitado",
+    label: "Usuario Invitado",
     min: 0,
-    max: 1999,
-    color: "#A8B2BD",
-    bgColor: "rgba(168,178,189,0.12)",
-    borderColor: "rgba(168,178,189,0.3)",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B2BD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
+    max: 499,
+    color: "#9E9E9E",
+    bgColor: "rgba(158,158,158,0.10)",
+    borderColor: "rgba(158,158,158,0.25)",
   },
   {
-    name: "Gold",
-    min: 2000,
+    name: "Bronce",
+    label: "Bronce",
+    min: 500,
+    max: 1499,
+    color: "#A0522D",
+    bgColor: "rgba(160,82,45,0.10)",
+    borderColor: "rgba(160,82,45,0.25)",
+  },
+  {
+    name: "Plata",
+    label: "Plata",
+    min: 1500,
+    max: 2999,
+    color: "#8D99A6",
+    bgColor: "rgba(141,153,166,0.10)",
+    borderColor: "rgba(141,153,166,0.25)",
+  },
+  {
+    name: "Oro",
+    label: "Oro",
+    min: 3000,
     max: 4999,
     color: "#C8A951",
     bgColor: "rgba(200,169,81,0.12)",
-    borderColor: "rgba(200,169,81,0.3)",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A951" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
+    borderColor: "rgba(200,169,81,0.30)",
   },
   {
     name: "Platinum",
+    label: "Platinum",
     min: 5000,
     max: Infinity,
     color: "#5C7C8A",
-    bgColor: "rgba(92,124,138,0.12)",
-    borderColor: "rgba(92,124,138,0.3)",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#5C7C8A" stroke="#5C7C8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
+    bgColor: "rgba(92,124,138,0.10)",
+    borderColor: "rgba(92,124,138,0.25)",
   },
 ]
+
+function ShieldIcon({ color, filled }: { color: string; filled: boolean }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill={filled ? color : "none"}
+      stroke={color}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      {filled && (
+        <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none" />
+      )}
+    </svg>
+  )
+}
 
 export function RankingBadge({ points }: RankingBadgeProps) {
   const currentRank = useMemo(
@@ -54,10 +80,11 @@ export function RankingBadge({ points }: RankingBadgeProps) {
     [points]
   )
 
+  const currentIdx = ranks.indexOf(currentRank)
+
   const nextRank = useMemo(() => {
-    const idx = ranks.indexOf(currentRank)
-    return idx < ranks.length - 1 ? ranks[idx + 1] : null
-  }, [currentRank])
+    return currentIdx < ranks.length - 1 ? ranks[currentIdx + 1] : null
+  }, [currentIdx])
 
   const progressToNext = useMemo(() => {
     if (!nextRank) return 100
@@ -68,72 +95,78 @@ export function RankingBadge({ points }: RankingBadgeProps) {
 
   return (
     <div className="w-full">
-      {/* Current rank badge */}
-      <div
-        className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold"
-        style={{
-          backgroundColor: currentRank.bgColor,
-          border: `1px solid ${currentRank.borderColor}`,
-          color: currentRank.color,
-        }}
-      >
-        {currentRank.icon}
-        <span>{currentRank.name}</span>
+      {/* Current rank badge + progress */}
+      <div className="flex items-center gap-3">
+        <div
+          className="flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold"
+          style={{
+            backgroundColor: currentRank.bgColor,
+            border: `1.5px solid ${currentRank.borderColor}`,
+            color: currentRank.color,
+          }}
+        >
+          <ShieldIcon color={currentRank.color} filled={currentIdx >= 2} />
+          <span>{currentRank.label}</span>
+        </div>
+
+        {nextRank && (
+          <div className="flex-1">
+            <div className="mb-1 flex items-center justify-between text-[11px]">
+              <span className="text-muted-foreground">
+                Siguiente: <span className="font-bold" style={{ color: nextRank.color }}>{nextRank.name}</span>
+              </span>
+              <span className="font-bold" style={{ color: currentRank.color }}>
+                {progressToNext}%
+              </span>
+            </div>
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
+              <div
+                className="h-full rounded-full transition-all duration-1000 ease-out"
+                style={{
+                  width: `${progressToNext}%`,
+                  backgroundColor: nextRank.color,
+                }}
+              />
+            </div>
+            <p className="mt-1 text-[10px] text-muted-foreground">
+              Te faltan{" "}
+              <span className="font-bold text-foreground">
+                {(nextRank.min - points).toLocaleString("es-ES")}
+              </span>{" "}
+              litros para {nextRank.name}
+            </p>
+          </div>
+        )}
       </div>
 
-      {/* Progress to next rank */}
-      {nextRank && (
-        <div className="mt-4">
-          <div className="mb-1.5 flex items-center justify-between text-xs">
-            <span className="text-muted-foreground">
-              Progreso a {nextRank.name}
-            </span>
-            <span className="font-medium text-foreground">
-              {progressToNext}%
-            </span>
-          </div>
-          <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
-            <div
-              className="h-full rounded-full transition-all duration-1000 ease-out"
-              style={{
-                width: `${progressToNext}%`,
-                backgroundColor: nextRank.color,
-              }}
-            />
-          </div>
-          <p className="mt-1.5 text-xs text-muted-foreground">
-            Te faltan{" "}
-            <span className="font-bold text-foreground">
-              {(nextRank.min - points).toLocaleString("es-ES")}
-            </span>{" "}
-            litros para {nextRank.name}
-          </p>
-        </div>
-      )}
-
-      {/* All ranks */}
-      <div className="mt-5 flex items-center justify-between gap-2">
-        {ranks.map((rank) => {
+      {/* All ranks overview */}
+      <div className="mt-5 flex items-stretch gap-1">
+        {ranks.map((rank, idx) => {
           const isActive = rank.name === currentRank.name
+          const isPast = idx < currentIdx
           return (
             <div
               key={rank.name}
-              className="flex flex-1 flex-col items-center gap-1 rounded-lg p-2 transition-all"
+              className="flex flex-1 flex-col items-center gap-1 rounded-lg px-1 py-2.5 transition-all duration-300"
               style={{
                 backgroundColor: isActive ? rank.bgColor : "transparent",
-                opacity: isActive ? 1 : 0.5,
+                opacity: isPast || isActive ? 1 : 0.35,
               }}
             >
-              {rank.icon}
+              <ShieldIcon
+                color={isPast || isActive ? rank.color : "#C0C0C0"}
+                filled={isPast}
+              />
               <span
-                className="text-[10px] font-bold uppercase tracking-wider"
-                style={{ color: rank.color }}
+                className="text-center text-[9px] font-bold uppercase leading-tight tracking-wider"
+                style={{ color: isPast || isActive ? rank.color : "#C0C0C0" }}
               >
                 {rank.name}
               </span>
-              <span className="text-[10px] text-muted-foreground">
-                {rank.min === 0 ? "0" : rank.min.toLocaleString("es-ES")}
-                {rank.max === Infinity ? "+" : ` - ${rank.max.toLocaleString("es-ES")}`}
+              <span className="text-center text-[8px] leading-tight text-muted-foreground">
+                {rank.max === Infinity
+                  ? `${rank.min.toLocaleString("es-ES")}+`
+                  : `${rank.min.toLocaleString("es-ES")}`}
               </span>
             </div>
           )

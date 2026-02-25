@@ -2,53 +2,53 @@ import Image from "next/image"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-primary text-primary-foreground">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-10 md:flex-row md:justify-between">
-        <div className="flex flex-col items-center gap-2 md:items-start">
+    <footer className="border-t border-border bg-[#1B3B6F]">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-4 py-10 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col items-center gap-3 md:items-start">
           <Image
             src="/logos/Indigo_Logo_Negativo.svg"
             alt="Indigo"
             width={120}
             height={40}
-            className="h-10 w-auto"
+            className="h-9 w-auto"
           />
-          <p className="text-xs text-primary-foreground/60">
+          <p className="max-w-[200px] text-center text-xs leading-relaxed text-white/50 md:text-left">
             Moda circular para un futuro sostenible.
           </p>
         </div>
 
-        <div className="flex gap-8 text-xs">
-          <div className="flex flex-col gap-2">
-            <span className="font-bold uppercase tracking-wider text-primary-foreground/40">
+        <div className="flex gap-10 text-xs">
+          <div className="flex flex-col gap-2.5">
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30">
               Plataforma
             </span>
-            <a href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
               Como funciona
             </a>
-            <a href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
               Intercambiar
             </a>
-            <a href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
               Rankings
             </a>
           </div>
-          <div className="flex flex-col gap-2">
-            <span className="font-bold uppercase tracking-wider text-primary-foreground/40">
+          <div className="flex flex-col gap-2.5">
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30">
               Impacto
             </span>
-            <a href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
               Litros Ahorrados
             </a>
-            <a href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
               Nuestro compromiso
             </a>
-            <a href="#" className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            <a href="#" className="text-white/60 transition-colors hover:text-white">
               Blog verde
             </a>
           </div>
         </div>
 
-        <div className="text-center text-[10px] text-primary-foreground/40 md:text-right">
+        <div className="text-center text-[10px] leading-relaxed text-white/30 md:text-right">
           <p>2026 Indigo. Todos los derechos reservados.</p>
           <p className="mt-1">Hecho con amor por el planeta.</p>
         </div>

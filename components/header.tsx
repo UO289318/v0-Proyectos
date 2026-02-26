@@ -9,6 +9,7 @@ const navLinks = [
   { href: "#como-funciona", label: "Como funciona", active: false },
   { href: "#litros", label: "Litros Ahorrados", active: false },
   { href: "#insignias", label: "Insignias", active: false },
+  { href: "#recompensas", label: "Recompensas", active: false },
   { href: "#intercambiar", label: "Intercambiar", active: false },
 ]
 

@@ -10,6 +10,7 @@ import { EvaluationSection } from "@/components/evaluation-section"
 import { LitrosExplanation } from "@/components/litros-explanation"
 import { BadgesSection } from "@/components/badges-section"
 import { RecentActivity } from "@/components/recent-activity"
+import { RewardsSection } from "@/components/rewards-section"
 import { CTASection } from "@/components/cta-section"
 
 export default function HomePage() {
@@ -70,6 +71,11 @@ export default function HomePage() {
         {/* Badges */}
         <section id="insignias" className="mb-16 scroll-mt-20">
           <BadgesSection />
+        </section>
+
+        {/* Rewards */}
+        <section id="recompensas" className="mb-16 scroll-mt-20">
+          <RewardsSection points={points} />
         </section>
 
         {/* Recent activity */}

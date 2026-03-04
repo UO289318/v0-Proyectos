@@ -6,11 +6,10 @@ import { User, Bell, Menu, X } from "lucide-react"
 
 const navLinks = [
   { href: "#", label: "Inicio", active: true },
-  { href: "#como-funciona", label: "Como funciona", active: false },
-  { href: "#litros", label: "Litros Ahorrados", active: false },
-  { href: "#insignias", label: "Insignias", active: false },
+  { href: "#area-personal", label: "Mi Perfil", active: false },
   { href: "#recompensas", label: "Recompensas", active: false },
-  { href: "#intercambiar", label: "Intercambiar", active: false },
+  { href: "#marketplace", label: "Comprar", active: false },
+  { href: "#vender", label: "Vender", active: false },
 ]
 
 export function Header() {

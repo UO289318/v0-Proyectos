@@ -11,6 +11,9 @@ import { LitrosExplanation } from "@/components/litros-explanation"
 import { BadgesSection } from "@/components/badges-section"
 import { RecentActivity } from "@/components/recent-activity"
 import { RewardsSection } from "@/components/rewards-section"
+import { PersonalArea } from "@/components/personal-area"
+import { MarketplaceSection } from "@/components/marketplace-section"
+import { SellingSection } from "@/components/selling-section"
 import { CTASection } from "@/components/cta-section"
 
 export default function HomePage() {
@@ -76,6 +79,21 @@ export default function HomePage() {
         {/* Rewards */}
         <section id="recompensas" className="mb-16 scroll-mt-20">
           <RewardsSection points={points} />
+        </section>
+
+        {/* Personal Area */}
+        <section id="area-personal" className="mb-16 scroll-mt-20">
+          <PersonalArea points={points} />
+        </section>
+
+        {/* Marketplace */}
+        <section id="marketplace" className="mb-16 scroll-mt-20">
+          <MarketplaceSection />
+        </section>
+
+        {/* Selling */}
+        <section id="vender" className="mb-16 scroll-mt-20">
+          <SellingSection />
         </section>
 
         {/* Recent activity */}

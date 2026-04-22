@@ -100,7 +100,12 @@ export function BadgesSection() {
         </span>
       </div>
 
+<<<<<<< HEAD
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+=======
+      {/* AQUÍ ESTÁ EL CAMBIO: sm: y md: cambian a @sm: y @md: */}
+      <div className="grid grid-cols-2 gap-3 @sm:grid-cols-3 @md:grid-cols-6">
+>>>>>>> master
         {userBadges.map((badge) => (
           <div
             key={badge.id}
@@ -144,4 +149,8 @@ export function BadgesSection() {
       </div>
     </section>
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

@@ -7,4 +7,9 @@ __v0_jsx-dev-runtime.ts
 node_modules/
 .next/
 .env*.local
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+.vercel
+>>>>>>> master

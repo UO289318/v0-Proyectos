@@ -3,6 +3,7 @@
 import { Tag, ShieldCheck, Clock, ChevronRight, AlertTriangle } from "lucide-react"
 
 const priceTable = [
+<<<<<<< HEAD
   { range: "0 - 10", points: "1,000" },
   { range: "10 - 20", points: "2,000" },
   { range: "20 - 30", points: "3,000" },
@@ -22,6 +23,26 @@ const ageModifiers = [
   { label: "1-2 años", modifier: "x1.0" },
   { label: "+3 años", modifier: "x0.7" },
 
+=======
+  { range: "0 - 10", points: "320" },
+  { range: "10 - 20", points: "640" },
+  { range: "20 - 30", points: "960" },
+  { range: "30 - 50", points: "1.280" },
+  { range: "50+", points: "1.600" },
+]
+
+const conditionModifiers = [
+  { label: "Perfecto", modifier: "x2,5", desc: "Sin señales de uso visibles" },
+  { label: "Bueno", modifier: "x2,0", desc: "Ligeras señales de uso" },
+  { label: "Aceptable", modifier: "x1,25", desc: "Uso evidente pero funcional" },
+  { label: "Desgastado", modifier: "x1,0", desc: "Requiere reparaciones menores" },
+]
+
+const ageModifiers = [
+  { label: "< 1 año", modifier: "x1,5" },
+  { label: "1-2 años", modifier: "x1,25" },
+  { label: "+3 años", modifier: "x1,0" },
+>>>>>>> master
 ]
 
 export function EvaluationSection() {
@@ -31,7 +52,11 @@ export function EvaluationSection() {
         <p className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-[#4A7C59]">
           Sistema de puntos
         </p>
+<<<<<<< HEAD
         <h2 className="font-serif text-2xl font-bold italic text-foreground md:text-3xl text-balance">
+=======
+        <h2 className="font-serif text-2xl font-bold italic text-foreground @md:text-3xl text-balance">
+>>>>>>> master
           Como se evalua tu ropa
         </h2>
         <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
@@ -40,8 +65,13 @@ export function EvaluationSection() {
         </p>
       </div>
 
+<<<<<<< HEAD
       {/* Three evaluation factors */}
       <div className="grid gap-4 md:grid-cols-3">
+=======
+      {/* CAMBIO CLAVE: md:grid-cols-3 -> @md:grid-cols-3 */}
+      <div className="grid gap-4 @md:grid-cols-3">
+>>>>>>> master
         {/* Factor 1: Price */}
         <div className="group relative overflow-hidden rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
           <span className="absolute right-3 top-3 font-serif text-4xl font-bold italic text-[#1B3B6F] opacity-[0.05]">
@@ -56,7 +86,10 @@ export function EvaluationSection() {
             El valor de compra determina los puntos iniciales de la prenda.
           </p>
 
+<<<<<<< HEAD
           {/* Price table */}
+=======
+>>>>>>> master
           <div className="space-y-1">
             {priceTable.map((row) => (
               <div
@@ -69,8 +102,13 @@ export function EvaluationSection() {
             ))}
           </div>
 
+<<<<<<< HEAD
           {/* Connector */}
           <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 md:block">
+=======
+          {/* CAMBIO CLAVE: md:block -> @md:block */}
+          <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 @md:block">
+>>>>>>> master
             <div className="flex h-6 w-6 items-center justify-center rounded-full border border-border bg-card shadow-sm">
               <ChevronRight className="h-3 w-3 text-muted-foreground" />
             </div>
@@ -106,7 +144,12 @@ export function EvaluationSection() {
             ))}
           </div>
 
+<<<<<<< HEAD
           <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 md:block">
+=======
+          {/* CAMBIO CLAVE: md:block -> @md:block */}
+          <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 @md:block">
+>>>>>>> master
             <div className="flex h-6 w-6 items-center justify-center rounded-full border border-border bg-card shadow-sm">
               <ChevronRight className="h-3 w-3 text-muted-foreground" />
             </div>
@@ -146,7 +189,11 @@ export function EvaluationSection() {
               Ejemplo
             </div>
             <p className="mt-0.5 text-[10px] leading-snug text-muted-foreground">
+<<<<<<< HEAD
               Abrigo de 35 EUR, buen estado, 2 anos = 4,000 x 0.8 x 0.9 = <span className="font-bold text-foreground">2,880 pts</span>
+=======
+              Abrigo de 35 EUR, buen estado, 3 años = 1,280 x 2.0 x 1.0 = <span className="font-bold text-foreground">2,560 pts</span>
+>>>>>>> master
             </p>
           </div>
         </div>
@@ -166,4 +213,8 @@ export function EvaluationSection() {
       </div>
     </section>
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

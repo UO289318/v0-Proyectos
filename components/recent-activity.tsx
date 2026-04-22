@@ -6,13 +6,8 @@ const activities = [
   {
     icon: Shirt,
     title: "Chaqueta de cuero evaluada",
-<<<<<<< HEAD
-    subtitle: "Valor: 45 EUR, Como nuevo, < 1 ano",
-    points: "+4,000",
-=======
     subtitle: "Valor: 45 EUR, Como nuevo, < 1 año",
     points: "+4,800",
->>>>>>> master
     time: "Hace 2 horas",
     type: "evaluation" as const,
   },
@@ -35,12 +30,8 @@ const activities = [
   {
     icon: Shirt,
     title: "Jeans vintage evaluados",
-    subtitle: "Valor: 25 EUR, Bueno, 2 anos",
-<<<<<<< HEAD
-    points: "+2,160",
-=======
+    subtitle: "Valor: 25 EUR, Bueno, 2 años",
     points: "+2,400",
->>>>>>> master
     time: "Hace 5 dias",
     type: "evaluation" as const,
   },

@@ -6,11 +6,7 @@ import { X, Leaf, ChevronRight, Lock, Sparkles } from "lucide-react"
 const climateTips = [
   {
     title: "Huella hidrica textil",
-<<<<<<< HEAD
-    text: "La industria textil consume 79 mil millones de litros de agua al ano. Reutilizar una sola prenda ahorra entre 2,000 y 7,000 litros de agua limpia.",
-=======
     text: "La industria textil consume 79 mil millones de litros de agua al año. Reutilizar una sola prenda ahorra entre 2,000 y 7,000 litros de agua limpia.",
->>>>>>> master
   },
   {
     title: "Emisiones de CO2",
@@ -22,11 +18,7 @@ const climateTips = [
   },
   {
     title: "Microfibras plasticas",
-<<<<<<< HEAD
-    text: "Lavar ropa sintetica libera medio millon de toneladas de microfibras al oceano cada ano, contaminando ecosistemas marinos en todo el planeta.",
-=======
     text: "Lavar ropa sintetica libera medio millon de toneladas de microfibras al oceano cada año, contaminando ecosistemas marinos en todo el planeta.",
->>>>>>> master
   },
   {
     title: "Extiende la vida",
@@ -34,11 +26,7 @@ const climateTips = [
   },
   {
     title: "Moda rapida",
-<<<<<<< HEAD
-    text: "La produccion de ropa se ha duplicado desde el ano 2000 y genera 92 millones de toneladas de residuos al ano. Tu eleccion marca la diferencia.",
-=======
     text: "La produccion de ropa se ha duplicado desde el año 2000 y genera 92 millones de toneladas de residuos al año. Tu eleccion marca la diferencia.",
->>>>>>> master
   },
   {
     title: "Algodon y agua",

@@ -47,24 +47,14 @@ export function LitrosExplanation() {
               <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.15em] text-[#4A7C59]">
                 Tu metrica de impacto
               </p>
-<<<<<<< HEAD
               <h2 className="font-serif text-xl font-bold italic text-card-foreground md:text-2xl text-balance">
-=======
-              {/* CAMBIO: md:text-2xl -> @md:text-2xl */}
-              <h2 className="font-serif text-xl font-bold italic text-card-foreground @md:text-2xl text-balance">
->>>>>>> master
                 Que son los Litros Ahorrados?
               </h2>
             </div>
           </div>
 
           {/* Explanation */}
-<<<<<<< HEAD
           <div className="mt-5 grid gap-4 md:grid-cols-2">
-=======
-          {/* CAMBIO: md:grid-cols-2 -> @md:grid-cols-2 */}
-          <div className="mt-5 grid gap-4 @md:grid-cols-2">
->>>>>>> master
             <div className="rounded-xl bg-secondary/50 p-4">
               <h3 className="mb-2 flex items-center gap-2 text-sm font-bold text-foreground">
                 <Factory className="h-4 w-4 text-[#1B3B6F]" />
@@ -72,13 +62,8 @@ export function LitrosExplanation() {
               </h3>
               <p className="text-[13px] leading-relaxed text-muted-foreground">
                 La industria de la moda consume <span className="font-bold text-foreground">79 mil millones</span> de
-<<<<<<< HEAD
-                litros de agua al ano. Fabricar una sola camiseta requiere suficiente agua para que
-                una persona beba durante 2.5 anos.
-=======
                 litros de agua al año. Fabricar una sola camiseta requiere suficiente agua para que
                 una persona beba durante 2.5 años.
->>>>>>> master
               </p>
             </div>
             <div className="rounded-xl bg-[#4A7C59]/5 p-4">
@@ -95,12 +80,7 @@ export function LitrosExplanation() {
           </div>
 
           {/* Stats */}
-<<<<<<< HEAD
           <div className="mt-5 grid grid-cols-2 gap-2.5 md:grid-cols-4">
-=======
-          {/* CAMBIO: md:grid-cols-4 -> @md:grid-cols-4 */}
-          <div className="mt-5 grid grid-cols-2 gap-2.5 @md:grid-cols-4">
->>>>>>> master
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -134,8 +114,4 @@ export function LitrosExplanation() {
       </div>
     </section>
   )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

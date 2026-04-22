@@ -5,12 +5,7 @@ import { ArrowRight, Leaf } from "lucide-react"
 
 export function CTASection() {
   return (
-<<<<<<< HEAD
-    <div className="relative overflow-hidden rounded-2xl bg-[#1B3B6F] p-8 md:p-12">
-=======
-    // Añadida la etiqueta @container a la sección principal
     <div className="relative overflow-hidden rounded-2xl bg-[#1B3B6F] p-8 @md:p-12 @container w-full">
->>>>>>> master
       {/* Subtle dot grid */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.04]">
         <svg width="100%" height="100%">
@@ -21,37 +16,20 @@ export function CTASection() {
         </svg>
       </div>
 
-<<<<<<< HEAD
-      <div className="relative z-10 flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
-        <div className="flex-1">
-=======
       <div className="relative z-10 flex flex-col items-center gap-8 text-center @md:flex-row @md:text-left">
         <div className="flex-1 w-full">
->>>>>>> master
           <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white/80">
             <Leaf className="h-3 w-3" />
             Moda circular
           </div>
-<<<<<<< HEAD
-          <h2 className="font-serif text-3xl font-bold italic text-white md:text-4xl text-balance">
-            Empieza a intercambiar hoy
-          </h2>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/60">
-            Dale una segunda vida a tu ropa y acumula litros ahorrados. Cada prenda
-            que intercambias ayuda al planeta y te acerca al siguiente nivel.
-          </p>
-          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:items-start">
-=======
           <h2 className="font-serif text-3xl font-bold italic text-white @md:text-4xl text-balance">
             Empieza a intercambiar hoy
           </h2>
-          {/* CAMBIO CLAVE: max-w-md cambiado a max-w-2xl para que el texto se expanda libremente en PC */}
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/60">
             Dale una segunda vida a tu ropa y acumula litros ahorrados. Cada prenda
             que intercambias ayuda al planeta y te acerca al siguiente nivel.
           </p>
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row @md:items-start">
->>>>>>> master
             <button className="inline-flex items-center gap-2 rounded-full bg-[#4A7C59] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#3D6B4C] hover:shadow-lg">
               Evaluar mi ropa
               <ArrowRight className="h-4 w-4" />
@@ -62,23 +40,13 @@ export function CTASection() {
           </div>
         </div>
 
-<<<<<<< HEAD
         {/* Sello decoration */}
-        <div className="hidden shrink-0 md:block">
-          <Image
-            src="/logos/Indigo_Logo_Sello.svg"
-            alt=""
-            width={140}
-            height={140}
-=======
-        {/* Sello decoration ajustado */}
         <div className="hidden shrink-0 @md:block">
           <Image
             src="/logos/Indigo_Logo_Sello.svg"
             alt=""
             width={160}
             height={160}
->>>>>>> master
             className="opacity-15"
             aria-hidden="true"
           />
@@ -86,8 +54,4 @@ export function CTASection() {
       </div>
     </div>
   )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
